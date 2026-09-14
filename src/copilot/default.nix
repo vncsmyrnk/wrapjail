@@ -26,7 +26,9 @@ stdenvNoCC.mkDerivation {
       --prefix PATH : ${
         lib.makeBinPath [
           pkgs.bubblewrap
+          pkgs.socat
         ]
-      }
+      } \
+      --set WRAPJAIL_SOCAT "${pkgs.pkgsStatic.socat}/bin/socat"
   '';
 }
